@@ -2,6 +2,8 @@
 
 > Grunt wrapper for Pantheon CLI Terminus
 
+**(WORK IN PROGRESS)**
+
 ## Getting Started
 This plugin requires Grunt.
 
@@ -37,17 +39,25 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.username
 Type: `String`
-Default value: `',  '`
 
-A string value that is used to do something with whatever.
+Your Pantheon username (most likely an email address).
 
-#### options.punctuation
+#### options.password
 Type: `String`
-Default value: `'.'`
 
-A string value that is used to do something else with whatever else.
+Your Pantheon password.
+
+#### options.pantheonSiteID
+Type: `String`
+
+Your Pantheon site ID.
+
+#### options.env
+Type: `String`
+
+The desired environment to run the backup on.
 
 ### Usage Examples
 

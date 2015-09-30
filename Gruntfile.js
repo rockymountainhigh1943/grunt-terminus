@@ -37,7 +37,7 @@ module.exports = function (grunt) {
       options: {
         username: secrets.username,
         password: secrets.password,
-        pantheonSiteID: 'phase2-redesign'
+        pantheonSiteID: secrets.pantheonSiteID
       },
       backup: {
         options: {
