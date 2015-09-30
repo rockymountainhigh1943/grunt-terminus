@@ -11,6 +11,7 @@
 module.exports = function (grunt) {
   // load all npm grunt tasks
   require('load-grunt-tasks')(grunt);
+  var secrets = grunt.file.readYAML('secrets.yml');
 
   // Project configuration.
   grunt.initConfig({
@@ -33,21 +34,16 @@ module.exports = function (grunt) {
 
     // Configuration to be run (and then tested).
     terminus: {
-      default_options: {
-        options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+      options: {
+        username: secrets.username,
+        password: secrets.password,
+        pantheonSiteID: 'phase2-redesign'
       },
-      custom_options: {
+      backup: {
         options: {
-          separator: ': ',
-          punctuation: ' !!!'
+          env: 'live'
         },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+        dest: 'tmp/backup'
       }
     },
 
@@ -63,7 +59,11 @@ module.exports = function (grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'terminus', 'nodeunit']);
+  grunt.registerTask('test', [
+    'clean', 
+    'terminus'
+    // 'nodeunit'
+  ]);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

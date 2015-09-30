@@ -2,7 +2,7 @@
   "name": "grunt-terminus",
   "version": "0.0.1",
   "description": "Grunt wrapper for Pantheon CLI Terminus",
-  "repository": "",
+  "repository": "git@github.com:rockymountainhigh1943/grunt-terminus.git",
   "author": {
     "name": "Jake Love",
     "email": "jake@jakelovedev.com",
